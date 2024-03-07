@@ -69,5 +69,14 @@ Return the data in a div or list (whatever is appropriate for the data being ret
 
 ## Step 7
 
+Create a custom hook to fetch the data from the API.
 
+Create a folder called hooks and create a file called useFetch.ts (or something like it)
+
+
+## Step 8
+
+Add React icons library
+
+npm i react-icons@4.7.1
 

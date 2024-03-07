@@ -11,8 +11,7 @@ const App = () => {
 			}}
 			templateColumns={{
 				base: '1fr',
-				lg: '1fr 1fr',
-				xl: '1fr 3fr',
+				lg: '1fr 4fr',
 			}}
 			templateRows={{
 				base: 'auto',
