@@ -3,10 +3,10 @@ import apiClient from '../services/api-client';
 import { CanceledError } from 'axios';
 
 export interface Platform {
-	platform: any;
-	id: number;
-	name: string;
-	slug: string;
+    platform: any;
+	id: number,
+	name: string,
+	slug: string
 	parent_platforms: { platform: Platform }[];
 }
 
@@ -15,7 +15,7 @@ export interface Game {
 	name: string;
 	background_image: string;
 	parent_platforms: Platform[];
-	metacritic: number;
+	metacritic: number
 }
 
 interface FetchGameResponse {
@@ -26,27 +26,27 @@ interface FetchGameResponse {
 const useGames = () => {
 	const [games, setGames] = useState<Game[]>([]);
 	const [error, setError] = useState(null);
-	const [isLoading, setLoading] = useState(false);
+	const [isLoading, setLoading] = useState(false)
 
 	useEffect(() => {
 		const controller = new AbortController();
 
-		const pageCount = '6';
-		const pageSize = '?page_size=' + pageCount;
+		const pageCount = '12'
+		const pageSize = '?page_size=' + pageCount
 
-		setLoading(true);
+		setLoading(true)
 		apiClient
 			.get<FetchGameResponse>(`/games` + `${pageSize}`, {
 				signal: controller.signal,
 			})
 			.then((res) => {
-				setGames(res.data.results);
-				setLoading(false);
+				setGames(res.data.results)
+				setLoading(false)
 			})
 			.catch((error) => {
 				if (error instanceof CanceledError) return;
 				setError(error.message);
-				setLoading(false);
+				setLoading(false)
 			});
 
 		return () => {
