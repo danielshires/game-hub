@@ -11,9 +11,6 @@ interface Props {
 }
 
 const GameCard = ({ game }: Props) => {
-	{
-		console.log(game.parent_platforms.map((p) => p.platform.name));
-	}
 	return (
 		<GameCardContainer>
             <Card borderRadius={10} overflow={'hidden'}>

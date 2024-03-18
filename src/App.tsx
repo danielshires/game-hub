@@ -12,7 +12,7 @@ const App = () => {
 			}}
 			templateColumns={{
 				base: '1fr',
-				lg: '1fr 4fr',
+				lg: '192px 4fr',
 			}}
 			templateRows={{
 				base: 'auto',
@@ -25,7 +25,7 @@ const App = () => {
 				<NavBar />
 			</GridItem>
 			<Show above='lg'>
-				<GridItem gridArea='aside'>
+				<GridItem gridArea='aside' paddingX={5}>
 					<GenreList />
 				</GridItem>
 			</Show>
