@@ -3,6 +3,7 @@ import useData from './useData';
 import { Genre } from './useGenres';
 
 export interface Platform {
+    platform: any;
 	id: number;
 	name: string;
 	slug: string;
