@@ -12,16 +12,11 @@ export interface GameQuery {
 	genre: Genre | null;
 	platform: Platform | null;
 	sortOrder: string;
+	searchText: string;
 }
 
 const App = () => {
 	const [gameQuery, setGameQeuery] = useState<GameQuery>({} as GameQuery);
-
-	{
-		console.log(gameQuery.genre);
-		console.log(gameQuery.platform);
-	}
-
 	return (
 		<Grid
 			templateAreas={{
@@ -40,7 +35,9 @@ const App = () => {
 			}}
 			gap={4}>
 			<GridItem gridArea='nav'>
-				<NavBar />
+				<NavBar
+					onSearch={(searchText) => setGameQeuery({ ...gameQuery, searchText })}
+				/>
 			</GridItem>
 			<Show above='lg'>
 				<GridItem gridArea='aside' paddingX={5}>
@@ -50,6 +47,7 @@ const App = () => {
 					/>
 				</GridItem>
 			</Show>
+			˝
 			<GridItem gridArea='main'>
 				<HStack spacing={5} paddingLeft={6} marginBottom={5}>
 					<PlatformSelector
@@ -58,7 +56,8 @@ const App = () => {
 						}
 						selectedPlatform={gameQuery.platform}
 					/>
-					<SortSelector sortOrder={gameQuery.sortOrder}
+					<SortSelector
+						sortOrder={gameQuery.sortOrder}
 						onSelectSortOrder={(sortOrder) =>
 							setGameQeuery({ ...gameQuery, sortOrder })
 						}
